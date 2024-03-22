@@ -1,36 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# how user authentication works
+so we have three part for our application
+- the first is the user
+- the second is the controller or the api
+- and the third is the database
 
-## Getting Started
+so now the verifytoken is a variable that holds a string value(encrypted) 
+now if someone call the api to generate the verifytoken, the api generate the verifytoken and now the verify token is send to both user/browser and the database. note that api doesnt keep anything
+![alt text](image.png)
+now the token comes back to the api from the user (can be from url or a req body). now in the database we have to find where the token is, and if found the user info comes to the api
+![alt text](image-1.png)
+and now the api invoke its logic and make the verify as true and so now the user is a verify user
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# now similar for the forgottenpassword token
+all steps are same and at last when the database sends the api the datas it 
+updates the password 
