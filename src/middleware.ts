@@ -23,6 +23,8 @@ export function middleware(request: NextRequest) {
   {
     return NextResponse.redirect(new URL('/login',request.nextUrl))
   }
+
+  return NextResponse.next();
 }
  //two part 
  //1.logic part (above) and the 2.matching part (below)
@@ -33,5 +35,6 @@ export const config = {
     '/profile',
     '/login',
     '/signup',
+    '/profile/:path*'
   ]
 }
