@@ -14,3 +14,5 @@ and now the api invoke its logic and make the verify as true and so now the user
 # now similar for the forgottenpassword token
 all steps are same and at last when the database sends the api the datas it 
 updates the password 
+
+# middleware should be name as middleware.ts and should be at the same level as the app
