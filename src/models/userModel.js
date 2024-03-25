@@ -33,6 +33,6 @@ const userSchema=new Schema({
 //if the model is already created in the database then we do like this
 //point to be note is that when store in mongo it is lowered cased and pluralised lie
 // here User turns to users
-const User= models.users ||model("User",userSchema)
+const User= models.users ||model("users",userSchema)
 
 export default User

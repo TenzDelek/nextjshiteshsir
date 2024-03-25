@@ -9,6 +9,7 @@ export async function POST(req:NextRequest) {
     try {
         //extracting token from the body
         const reqBody=await req.json()
+        //when we call it in the verifyemail page, we are bringing the post req with the token state
         const {token}=reqBody
         console.log(token)
         //finding the user based on token
