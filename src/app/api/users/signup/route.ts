@@ -6,6 +6,7 @@ import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 //encrypting password
 import bcryptjs from "bcryptjs";
+import { sendEmail } from "@/helpers/mailer";
 
 connect();
 //breaking down the overall step to be done in signup
@@ -45,6 +46,11 @@ export async function POST(request: NextRequest) {
     //dont forget to save
     const savedUser=await newUser.save()
     console.log(savedUser)
+
+    //send verify email
+    await sendEmail({email,emailType:"VERIFY",
+    userId:savedUser._id
+    })
 
     //now send a response back
     return NextResponse.json({
